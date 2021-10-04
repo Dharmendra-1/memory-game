@@ -1,16 +1,16 @@
-const gameContainer = document.getElementsById("game");
+const gameContainer = document.getElementById('game');
 
 const COLORS = [
-  "red",
-  "blue",
-  "green",
-  "orange",
-  "purple",
-  "red",
-  "blue",
-  "green",
-  "orange",
-  "purple"
+  'red',
+  'blue',
+  'green',
+  'orange',
+  'purple',
+  'red',
+  'blue',
+  'green',
+  'orange',
+  'purple',
 ];
 
 // here is a helper function to shuffle an array
@@ -44,23 +44,50 @@ let shuffledColors = shuffle(COLORS);
 function createDivsForColors(colorArray) {
   for (let color of colorArray) {
     // create a new div
-    const newDiv = document.createElement("div");
+    const newDiv = document.createElement('div');
 
     // give it a class attribute for the value we are looping over
     newDiv.classList.add(color);
 
     // call a function handleCardClick when a div is clicked on
-    newDiv.addEventListener("click", handleCardClick);
+    newDiv.addEventListener('click', handleCardClick);
 
     // append the div to the element with an id of game
-    gameContainer.append(newDiv);
+    let div = gameContainer.appendChild(newDiv);
   }
 }
+
+let count = 0;
+pair = [];
+increase = 1;
+matches = 0;
 
 // TODO: Implement this function!
 function handleCardClick(event) {
   // you can use event.target to see which element was clicked
-  console.log("you clicked",event.target);
+  // let innerDiv = document.getElementsByClassName(event.target.classList[0]);
+  let color = event.target.classList[0];
+  let div = event.target;
+  div.style.backgroundColor = color;
+  // console.log('you clicked', event.target.classList[0]);
+  count++;
+  pair.push(color);
+
+  if (count === 2) {
+    if (check(pair)) {
+      count = 0;
+      pair = [];
+      matches++;
+    }
+  }
+}
+
+function check(pair) {
+  if (pair[0] === pair[1]) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // when the DOM loads

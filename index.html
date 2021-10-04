@@ -4,14 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./public/CSS/style.css" />
     <title>Memory Game</title>
   </head>
   <body>
     <header>
       <h1>Memory Game!</h1>
     </header>
-    <div id="game"></div>
-    <script type="text/javascript" src="script.js"></script>
+
+    <section>
+      <div id="mainPageContent">
+        <div class="lableDiv">
+          <label for="levels">Level</label><br />
+          <select name="levels" id="levels">
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+          </select>
+        </div>
+        <button id="startButton">Start</button>
+      </div>
+
+      <div class="topHeader">
+        <div class="moves"></div>
+        <div class="bestScore"></div>
+      </div>
+
+      <div class="gameContainer">
+        <div id="game"></div>
+      </div>
+
+      <div id="winner"></div>
+      <div id="restartResetButton">
+        <button id="restartButton">Restart</button>
+        <button id="resetButton">Reset</button>
+      </div>
+    </section>
+    <script type="text/javascript" src="./public/js/script.js"></script>
   </body>
 </html>
